@@ -1,0 +1,19 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="100" cy="100" r="95" fill="url(#paint0_linear)" stroke="#2d5f2e" stroke-width="3"/>
+  <circle cx="100" cy="100" r="70" fill="white"/>
+  <path d="M85 85 Q90 75 95 85 L90 90 Z" fill="#2d5f2e"/>
+  <path d="M105 85 Q110 75 115 85 L110 90 Z" fill="#3d8b40"/>
+  <text x="100" y="115" font-family="'Georgia', serif" font-size="24" font-weight="600" fill="#3d8b40" text-anchor="middle" style="font-style: italic;">Landscaping</text>
+  <text x="100" y="45" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="white" text-anchor="middle" letter-spacing="3">RELIABLE</text>
+  <text x="100" y="150" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="white" text-anchor="middle" letter-spacing="2">SERVICES</text>
+  <circle cx="85" cy="145" r="2" fill="white"/>
+  <circle cx="100" cy="145" r="2" fill="white"/>
+  <circle cx="115" cy="145" r="2" fill="white"/>
+  <defs>
+    <linearGradient id="paint0_linear" x1="100" y1="5" x2="100" y2="195" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3d8b40"/>
+      <stop offset="0.5" stop-color="#66b76a"/>
+      <stop offset="1" stop-color="#3d8b40"/>
+    </linearGradient>
+  </defs>
+</svg>

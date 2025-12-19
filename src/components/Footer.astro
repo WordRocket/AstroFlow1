@@ -1,50 +1,63 @@
 ---
-import { NAVIGATION, SOCIAL_LINKS, SITE } from '@config/site';
-import { Package, Linkedin, Twitter, Facebook } from 'lucide-react';
+import { NAVIGATION, SOCIAL_LINKS, SITE, SERVICES } from '@config/site';
+import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Star } from 'lucide-react';
 ---
 
-<footer class="bg-slate-900 text-slate-300">
+<footer class="bg-gradient-to-br from-slate-900 via-slate-800 to-green-900 text-slate-300">
   <div class="container mx-auto px-4 py-16 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 gap-12 lg:grid-cols-4">
-      <!-- Company Info -->
       <div class="lg:col-span-1 space-y-6">
         <a href="/" class="flex items-center space-x-3 group">
-          <div class="flex items-center justify-center w-12 h-12 rounded-lg bg-linear-to-br from-blue-600 to-teal-600">
-            <Package className="w-7 h-7 text-white" />
+          <img
+            src="/logo.svg"
+            alt="Reliable Landscaping Niagara Logo"
+            class="w-16 h-16 group-hover:scale-105 transition-transform duration-300"
+          />
+          <div class="flex flex-col">
+            <span class="text-xl font-bold text-white leading-tight">
+              Reliable Landscaping
+            </span>
+            <span class="text-sm text-green-300 font-medium">
+              Niagara
+            </span>
           </div>
-          <span class="text-2xl font-bold text-white">
-            AstroFlow
-          </span>
         </a>
         <p class="text-sm text-slate-400 leading-relaxed max-w-xs">
-          {SITE.description}
+          Professional landscaping services transforming outdoor spaces in Niagara and GTA since years.
         </p>
+        <div class="flex items-center gap-2 text-yellow-400">
+          <Star className="w-5 h-5 fill-current" />
+          <Star className="w-5 h-5 fill-current" />
+          <Star className="w-5 h-5 fill-current" />
+          <Star className="w-5 h-5 fill-current" />
+          <Star className="w-5 h-5 fill-current" />
+          <span class="text-sm text-slate-300 ml-2">5.0 (6 reviews)</span>
+        </div>
         <div class="flex space-x-4">
           <a
-            href={SOCIAL_LINKS.linkedin}
-            class="w-10 h-10 flex items-center justify-center rounded-lg bg-slate-800 text-slate-400 hover:bg-blue-600 hover:text-white transition-all"
-            aria-label="LinkedIn"
-          >
-            <Linkedin className="w-5 h-5" />
-          </a>
-          <a
-            href={SOCIAL_LINKS.twitter}
-            class="w-10 h-10 flex items-center justify-center rounded-lg bg-slate-800 text-slate-400 hover:bg-blue-400 hover:text-white transition-all"
-            aria-label="Twitter"
-          >
-            <Twitter className="w-5 h-5" />
-          </a>
-          <a
             href={SOCIAL_LINKS.facebook}
-            class="w-10 h-10 flex items-center justify-center rounded-lg bg-slate-800 text-slate-400 hover:bg-blue-500 hover:text-white transition-all"
+            class="w-10 h-10 flex items-center justify-center rounded-lg bg-slate-800 text-slate-400 hover:bg-green-600 hover:text-white transition-all"
             aria-label="Facebook"
           >
             <Facebook className="w-5 h-5" />
           </a>
+          <a
+            href={SOCIAL_LINKS.instagram}
+            class="w-10 h-10 flex items-center justify-center rounded-lg bg-slate-800 text-slate-400 hover:bg-green-600 hover:text-white transition-all"
+            aria-label="Instagram"
+          >
+            <Instagram className="w-5 h-5" />
+          </a>
+          <a
+            href={SOCIAL_LINKS.google}
+            class="w-10 h-10 flex items-center justify-center rounded-lg bg-slate-800 text-slate-400 hover:bg-green-600 hover:text-white transition-all"
+            aria-label="Google"
+          >
+            <Star className="w-5 h-5" />
+          </a>
         </div>
       </div>
 
-      <!-- Quick Links -->
       <div>
         <h3 class="text-sm font-semibold uppercase tracking-wider text-white mb-6">
           Quick Links
@@ -54,9 +67,9 @@ import { Package, Linkedin, Twitter, Facebook } from 'lucide-react';
             <li>
               <a
                 href={item.href}
-                class="text-sm text-slate-400 hover:text-blue-400 transition-colors inline-flex items-center group"
+                class="text-sm text-slate-400 hover:text-green-400 transition-colors inline-flex items-center group"
               >
-                <span class="w-0 group-hover:w-2 h-0.5 bg-blue-400 transition-all mr-0 group-hover:mr-2"></span>
+                <span class="w-0 group-hover:w-2 h-0.5 bg-green-400 transition-all mr-0 group-hover:mr-2"></span>
                 {item.name}
               </a>
             </li>
@@ -64,93 +77,76 @@ import { Package, Linkedin, Twitter, Facebook } from 'lucide-react';
         </ul>
       </div>
 
-      <!-- Services -->
       <div>
         <h3 class="text-sm font-semibold uppercase tracking-wider text-white mb-6">
-          Services
+          Our Services
         </h3>
         <ul class="space-y-3">
-          <li>
-            <a href="/capabilities" class="text-sm text-slate-400 hover:text-blue-400 transition-colors inline-flex items-center group">
-              <span class="w-0 group-hover:w-2 h-0.5 bg-blue-400 transition-all mr-0 group-hover:mr-2"></span>
-              Warehousing & Storage
-            </a>
-          </li>
-          <li>
-            <a href="/capabilities" class="text-sm text-slate-400 hover:text-blue-400 transition-colors inline-flex items-center group">
-              <span class="w-0 group-hover:w-2 h-0.5 bg-blue-400 transition-all mr-0 group-hover:mr-2"></span>
-              Transportation
-            </a>
-          </li>
-          <li>
-            <a href="/capabilities" class="text-sm text-slate-400 hover:text-blue-400 transition-colors inline-flex items-center group">
-              <span class="w-0 group-hover:w-2 h-0.5 bg-blue-400 transition-all mr-0 group-hover:mr-2"></span>
-              Manufacturing
-            </a>
-          </li>
-          <li>
-            <a href="/capabilities" class="text-sm text-slate-400 hover:text-blue-400 transition-colors inline-flex items-center group">
-              <span class="w-0 group-hover:w-2 h-0.5 bg-blue-400 transition-all mr-0 group-hover:mr-2"></span>
-              Supply Chain Management
-            </a>
-          </li>
+          {SERVICES.map((service) => (
+            <li>
+              <a href="/capabilities" class="text-sm text-slate-400 hover:text-green-400 transition-colors inline-flex items-center group">
+                <span class="w-0 group-hover:w-2 h-0.5 bg-green-400 transition-all mr-0 group-hover:mr-2"></span>
+                {service.name}
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
 
-      <!-- Contact -->
       <div>
         <h3 class="text-sm font-semibold uppercase tracking-wider text-white mb-6">
-          Get Started
+          Contact Us
         </h3>
-        <ul class="space-y-3 text-sm">
+        <ul class="space-y-4 text-sm">
           <li>
-            <a href="/rfq" class="text-slate-400 hover:text-blue-400 transition-colors inline-flex items-center group">
-              <span class="w-0 group-hover:w-2 h-0.5 bg-blue-400 transition-all mr-0 group-hover:mr-2"></span>
-              Request a Quote
+            <a href={`tel:${SITE.phone}`} class="text-slate-400 hover:text-green-400 transition-colors inline-flex items-center group gap-3">
+              <Phone className="w-5 h-5 text-green-500" />
+              <span>{SITE.phone}</span>
             </a>
           </li>
           <li>
-            <a href="/facilities" class="text-slate-400 hover:text-blue-400 transition-colors inline-flex items-center group">
-              <span class="w-0 group-hover:w-2 h-0.5 bg-blue-400 transition-all mr-0 group-hover:mr-2"></span>
-              Find a Facility
+            <a href={`mailto:${SITE.email}`} class="text-slate-400 hover:text-green-400 transition-colors inline-flex items-center group gap-3">
+              <Mail className="w-5 h-5 text-green-500" />
+              <span>{SITE.email}</span>
             </a>
           </li>
-          <li>
-            <a href="/documentation" class="text-slate-400 hover:text-blue-400 transition-colors inline-flex items-center group">
-              <span class="w-0 group-hover:w-2 h-0.5 bg-blue-400 transition-all mr-0 group-hover:mr-2"></span>
-              Documentation
-            </a>
+          <li class="inline-flex items-start gap-3">
+            <MapPin className="w-5 h-5 text-green-500 mt-0.5" />
+            <span class="text-slate-400">{SITE.address}</span>
+          </li>
+          <li class="inline-flex items-start gap-3">
+            <Clock className="w-5 h-5 text-green-500 mt-0.5" />
+            <div class="text-slate-400">
+              <div>Mon-Fri: {SITE.hours.weekdays}</div>
+              <div>Sat: {SITE.hours.saturday}</div>
+              <div>Sun: {SITE.hours.sunday}</div>
+            </div>
           </li>
         </ul>
-        
+
         <div class="mt-8">
           <a
             href="/rfq"
-            class="inline-flex items-center px-6 py-3 text-sm font-semibold text-white bg-linear-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 rounded-lg shadow-lg hover:shadow-xl transition-all"
+            class="inline-flex items-center px-6 py-3 text-sm font-semibold text-white bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 rounded-lg shadow-lg hover:shadow-xl transition-all"
           >
-            Get Started
+            Get Free Quote
           </a>
         </div>
       </div>
     </div>
 
-    <!-- Bottom Bar -->
-    <div class="mt-16 pt-8 border-t border-slate-800">
+    <div class="mt-16 pt-8 border-t border-slate-700">
       <div class="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
         <p class="text-sm text-slate-400">
           &copy; {new Date().getFullYear()} {SITE.author}. All rights reserved.
         </p>
         <div class="flex items-center space-x-6 text-sm">
-          <a href="/" class="text-slate-400 hover:text-blue-400 transition-colors">
+          <a href="/" class="text-slate-400 hover:text-green-400 transition-colors">
             Privacy Policy
           </a>
-          <span class="text-slate-700">•</span>
-          <a href="/" class="text-slate-400 hover:text-blue-400 transition-colors">
+          <span class="text-slate-600">•</span>
+          <a href="/" class="text-slate-400 hover:text-green-400 transition-colors">
             Terms of Service
-          </a>
-          <span class="text-slate-700">•</span>
-          <a href="/" class="text-slate-400 hover:text-blue-400 transition-colors">
-            Cookie Policy
           </a>
         </div>
       </div>
