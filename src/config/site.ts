@@ -3,8 +3,8 @@ export const SITE = {
   description: 'Professional landscaping, hardscaping, tree removal, and snow removal services in Niagara and GTA. Reliable and experienced company dedicated to transforming your outdoor spaces.',
   url: 'https://reliablelandscapingniagara.com',
   author: 'Reliable Landscaping Niagara',
-  phone: '(905) 351-9975',
-  email: 'info@reliablelandscapingniagara.com',
+  phone: '905-993-0786',
+  email: 'reliablelandscaping73@gmail.com',
   address: 'Serving Niagara Region and Greater Toronto Area',
   hours: {
     weekdays: '9:00 AM - 6:00 PM',
