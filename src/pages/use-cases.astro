@@ -1,216 +1,237 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
 import Section from '@components/ui/Section.astro';
+import Card from '@components/ui/Card.astro';
 import Button from '@components/ui/Button.astro';
 import TestimonialCard from '@components/ui/TestimonialCard.astro';
-import UseCaseTabs from '@components/react/UseCaseTabs';
-import StatsCards from '@components/react/StatsCards';
 import { Image } from 'astro:assets';
+import { Leaf, Hammer2, Fence, Home, Sprout } from 'lucide-react';
 
-import ecommerceImg from '@assets/5132814676904369851.jpg';
-import healthcareImg from '@assets/3937649282110461008.jpg';
-import automotiveImg from '@assets/1783369057941886937.jpg';
-import technologyImg from '@assets/8860198356584709101.jpg';
-import consumerGoodsImg from '@assets/5132814676904369851.jpg';
-import foodBeverageImg from '@assets/3937649282110461008.jpg';
+import landscapingImg from '@assets/202673963581995355.jpg';
+import hardscapingImg from '@assets/1835039404882360347.jpg';
+import fencingImg from '@assets/5012438065421274037.jpg';
+import privacyFenceImg from '@assets/7940613081156595717.jpg';
 
-import testimonial1Img from '@assets/5132814676904369851.jpg';
-import testimonial2Img from '@assets/3937649282110461008.jpg';
-import testimonial3Img from '@assets/1783369057941886937.jpg';
+import testimonial1Img from '@assets/1835039404882360347.jpg';
+import testimonial2Img from '@assets/202673963581995355.jpg';
+import testimonial3Img from '@assets/7940613081156595717.jpg';
 
-import heroBgImg from '@assets/3937649282110461008.jpg';
-import ctaBgImg from '@assets/5132814676904369851.jpg';
+import heroBgImg from '@assets/1835039404882360347.jpg';
+import ctaBgImg from '@assets/7940613081156595717.jpg';
 
-const useCases:any[] = [
+const projects:any[] = [
   {
-    industry: 'E-Commerce & Retail',
-    iconName: 'ShoppingCart',
-    image: ecommerceImg,
-    challenge: 'Managing high-volume orders during peak seasons with tight delivery windows and customer expectations for fast, accurate fulfillment.',
-    solution: 'Scalable warehousing with automated order processing, same-day shipping capabilities, and integrated returns management.',
-    results: [
-      '40% reduction in order processing time',
-      '99.5% order accuracy rate',
-      '2-day average delivery time',
-      '95% customer satisfaction score'
-    ]
+    title: 'General Landscaping & Lawn Care',
+    iconName: 'Leaf',
+    image: landscapingImg,
+    description: 'Complete lawn care, garden design, planting, and maintenance services to keep your property looking pristine year-round.',
+    features: [
+      'Professional lawn care and maintenance',
+      'Garden design and planting',
+      'Seasonal plantings and updates',
+      'Tree and shrub care'
+    ],
+    testimonial: "The transformation is incredible! They took our tired lawn and overgrown beds and turned it into a beautiful, well-maintained landscape. The attention to detail is outstanding."
   },
   {
-    industry: 'Healthcare & Pharmaceuticals',
-    iconName: 'Heart',
-    image: healthcareImg,
-    challenge: 'Maintaining strict temperature controls, regulatory compliance, and chain of custody for sensitive medical products and pharmaceuticals.',
-    solution: 'FDA-compliant climate-controlled facilities with validated cold chain logistics, real-time monitoring, and full audit trails.',
-    results: [
-      '100% regulatory compliance',
-      'Zero temperature excursions',
-      'Complete lot traceability',
-      'Reduced waste by 30%'
-    ]
+    title: 'Hardscaping & Property Development',
+    iconName: 'Hammer2',
+    image: hardscapingImg,
+    description: 'Professional installation of patios, walkways, retaining walls, and outdoor living spaces with premium materials.',
+    features: [
+      'Patio installation and design',
+      'Walkway construction',
+      'Retaining wall installation',
+      'Outdoor living space creation'
+    ],
+    testimonial: "From concept to completion, they delivered exactly what we envisioned. The patio looks amazing and has become our favorite place to entertain. Professional crew, great communication."
   },
   {
-    industry: 'Automotive & Manufacturing',
-    iconName: 'Car',
-    image: automotiveImg,
-    challenge: 'Coordinating just-in-time delivery of components across multiple manufacturing plants while minimizing inventory holding costs.',
-    solution: 'Strategic distribution centers near production facilities, milk-run logistics, and predictive inventory management.',
-    results: [
-      '50% reduction in inventory costs',
-      '99.8% on-time delivery',
-      'Zero production line stoppages',
-      'Improved cash flow'
-    ]
+    title: 'Fencing & Privacy Solutions',
+    iconName: 'Fence',
+    image: fencingImg,
+    description: 'Safe, attractive fence installations and repairs that enhance your property value and create privacy.',
+    features: [
+      'Fence installation and repairs',
+      'Multiple material options',
+      'Privacy fence solutions',
+      'Post and gate work'
+    ],
+    testimonial: "They built a beautiful fence that not only looks great but provides the privacy we needed. The workmanship is excellent and they were so professional throughout the process."
   },
   {
-    industry: 'Technology & Electronics',
-    iconName: 'Laptop',
-    image: technologyImg,
-    challenge: 'Secure handling of high-value electronics, efficient reverse logistics for returns, and rapid product lifecycle management.',
-    solution: 'ESD-protected environments, secure chain of custody, streamlined returns processing, and asset recovery programs.',
-    results: [
-      'Zero security incidents',
-      '48-hour return processing',
-      '85% asset recovery rate',
-      'Reduced shrinkage by 60%'
-    ]
-  },
-  {
-    industry: 'Consumer Goods',
-    iconName: 'Package',
-    image: consumerGoodsImg,
-    challenge: 'Managing diverse product portfolios with varying shelf lives, promotional campaigns, and seasonal demand fluctuations.',
-    solution: 'Multi-client warehousing, FEFO inventory management, promotional labeling services, and demand-driven distribution.',
-    results: [
-      '35% improvement in stock turnover',
-      'Reduced spoilage by 45%',
-      '3-day promo turnaround time',
-      'Flexible capacity scaling'
-    ]
-  },
-  {
-    industry: 'Food & Beverage',
-    iconName: 'UtensilsCrossed',
-    image: foodBeverageImg,
-    challenge: 'Maintaining food safety standards, managing perishables, and ensuring compliance with HACCP and FDA regulations.',
-    solution: 'FSMA-compliant facilities, temperature-zoned warehousing, lot tracking, and specialized refrigerated transport.',
-    results: [
-      '100% food safety compliance',
-      '2% product loss rate',
-      'Full batch recall capability',
-      'Extended product freshness'
-    ]
-  }
-];
-
-const testimonials:any[] = [
-  {
-    quote: "AstroFlow's automated warehousing solution transformed our e-commerce operations. We reduced order processing time by 40% and achieved 99.5% accuracy. Their same-day shipping capabilities helped us compete with industry giants.",
-    name: "Sarah Mitchell",
-    role: "VP Operations, TechRetail",
-    image: testimonial1Img,
-    ringColor: "ring-blue-200"
-  },
-  {
-    quote: "Their FDA-compliant cold chain logistics are exceptional. We've maintained 100% regulatory compliance with zero temperature excursions. The real-time monitoring and complete audit trails give us complete confidence.",
-    name: "Dr. James Chen",
-    role: "Director, PharmaLogistics",
-    image: testimonial2Img,
-    ringColor: "ring-teal-200"
-  },
-  {
-    quote: "Just-in-time delivery with 99.8% on-time performance and zero production stoppages. Their strategic distribution centers and predictive inventory management cut our inventory costs by 50%.",
-    name: "Robert Johnson",
-    role: "Operations Manager, AutoParts Co.",
-    image: testimonial3Img,
-    ringColor: "ring-blue-200"
+    title: 'Privacy & Landscape Enhancement',
+    iconName: 'Sprout',
+    image: privacyFenceImg,
+    description: 'Create privacy and beauty with combined fence and landscape design solutions that maximize your outdoor space.',
+    features: [
+      'Combined fence and landscaping design',
+      'Tall privacy solutions',
+      'Strategic plantings',
+      'Year-round appeal'
+    ],
+    testimonial: "They perfectly combined fencing and landscaping to create the private oasis we wanted. The combination of the fence with mature plantings is exactly what we imagined."
   }
 ];
 ---
 
-<BaseLayout title="Use Cases - Industry Solutions">
+<BaseLayout title="Gallery - Our Landscaping Work">
   <!-- Hero Section -->
   <section class="relative h-[70vh] min-h-[500px] flex items-center overflow-hidden">
     <!-- Background Image with Overlay -->
     <div class="absolute inset-0">
-      <Image 
+      <Image
         src={heroBgImg}
-        alt="Industry solutions and use cases"
+        alt="Beautiful landscaping and outdoor transformations"
         class="w-full h-full object-cover"
         width={2070}
         height={1380}
       />
-      <div class="absolute inset-0 bg-linear-to-r from-slate-900/95 via-slate-900/80 to-slate-900/50"></div>
+      <div class="absolute inset-0 bg-linear-to-r from-slate-900/95 via-green-900/85 to-slate-900/50"></div>
     </div>
 
     <!-- Content -->
     <div class="container mx-auto relative z-10 px-4 sm:px-6 lg:px-8">
       <div class="max-w-4xl mx-auto text-center">
-        <div class="inline-flex items-center px-4 py-2 mb-6 bg-linear-to-r from-blue-600 to-teal-600 text-white text-sm font-semibold rounded-full shadow-lg">
-          <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" />
-          </svg>
-          Industry Solutions
+        <div class="inline-flex items-center px-4 py-2 mb-6 bg-linear-to-r from-green-600 to-emerald-600 text-white text-sm font-semibold rounded-full shadow-lg">
+          <Leaf className="w-4 h-4 mr-2" />
+          Our Portfolio
         </div>
-        
+
         <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-          Industry <span class="text-transparent bg-clip-text bg-linear-to-r from-blue-400 via-teal-400 to-blue-400">
-            Use Cases
+          Our <span class="text-transparent bg-clip-text bg-linear-to-r from-green-300 via-emerald-300 to-green-300">
+            Gallery
           </span>
         </h1>
-        
+
         <p class="text-xl md:text-2xl text-slate-200 mb-8 max-w-3xl mx-auto leading-relaxed">
-          Real-world solutions delivering measurable results across diverse industries. 
-          See how we've transformed operations.
+          Explore beautiful transformations we've completed across Niagara and the GTA.
+          See how we turn outdoor spaces into stunning landscapes.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- Use Cases with Tabs -->
+  <!-- Portfolio Projects Grid -->
   <Section background="gray">
-    <UseCaseTabs useCases={useCases} client:load />
+    <div class="text-center mb-16">
+      <div class="inline-block px-4 py-2 mb-4 bg-green-100 text-green-800 text-sm font-semibold rounded-full">
+        Our Services
+      </div>
+      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        Professional <span class="gradient-text">Landscaping Services</span>
+      </h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        From lawn care to hardscaping, fencing to complete property transformations, we deliver quality workmanship and exceptional service.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      {projects.map((project, index) => (
+        <Card hover class="overflow-hidden group animate-fadeInUp" style={`animation-delay: ${index * 0.1}s`}>
+          <!-- Project Image -->
+          <div class="relative h-64 overflow-hidden">
+            <Image
+              src={project.image}
+              alt={project.title}
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              width={800}
+              height={600}
+            />
+            <div class="absolute inset-0 bg-linear-to-t from-gray-900/80 via-gray-900/40 to-transparent"></div>
+            <div class="absolute top-4 right-4">
+              <div class="w-12 h-12 rounded-full bg-green-600 flex items-center justify-center text-white">
+                {project.iconName === 'Leaf' && <Leaf className="w-6 h-6" />}
+                {project.iconName === 'Hammer2' && <Hammer2 className="w-6 h-6" />}
+                {project.iconName === 'Fence' && <Fence className="w-6 h-6" />}
+                {project.iconName === 'Sprout' && <Sprout className="w-6 h-6" />}
+              </div>
+            </div>
+            <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+              <h3 class="text-2xl font-bold">{project.title}</h3>
+            </div>
+          </div>
+
+          <div class="p-6 space-y-4">
+            <p class="text-gray-600 text-sm leading-relaxed">{project.description}</p>
+
+            <!-- Features -->
+            <div>
+              <h4 class="text-sm font-semibold text-gray-700 uppercase mb-3 tracking-wide flex items-center gap-2">
+                <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                What's Included
+              </h4>
+              <ul class="grid grid-cols-1 gap-2">
+                {project.features.map((feature) => (
+                  <li class="flex items-start space-x-2.5 text-sm">
+                    <svg class="w-4 h-4 text-green-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span class="text-gray-600">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <!-- Testimonial -->
+            <div class="border-t border-gray-200 pt-4">
+              <p class="text-sm text-gray-700 italic">"{project.testimonial}"</p>
+            </div>
+          </div>
+        </Card>
+      ))}
+    </div>
   </Section>
 
-  <!-- Success Metrics -->
+  <!-- Why Choose Us -->
   <Section background="white">
     <div class="text-center mb-16">
       <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-        Proven <span class="gradient-text">Results</span>
+        Why Choose <span class="gradient-text">Reliable Landscaping</span>
       </h2>
       <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-        Our track record speaks for itself with measurable improvements across key performance indicators.
+        With over a decade of experience serving Niagara and the GTA, we bring expertise, reliability, and a passion for outdoor beauty.
       </p>
     </div>
 
-    <StatsCards 
-      stats={[
-        { value: '99.8%', label: 'On-Time Delivery', iconName: 'CheckCircle2' },
-        { value: '45%', label: 'Average Cost Savings', iconName: 'TrendingDown' },
-        { value: '500+', label: 'Satisfied Clients', iconName: 'Users' },
-        { value: '50M+', label: 'Units Shipped', iconName: 'Package' }
-      ]}
-      client:load 
-    />
-  </Section>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <Card class="text-center">
+        <div class="w-12 h-12 mx-auto mb-4 rounded-lg bg-green-100 flex items-center justify-center">
+          <Leaf className="w-6 h-6 text-green-600" />
+        </div>
+        <h3 class="text-lg font-bold text-gray-900 mb-2">Expert Knowledge</h3>
+        <p class="text-gray-600 text-sm">Certified professionals with deep expertise in landscaping, hardscaping, and design.</p>
+      </Card>
 
-  <!-- Testimonials Section -->
-  <Section background="gray">
-    <div class="text-center mb-16">
-      <div class="inline-block px-4 py-2 mb-4 bg-blue-100 text-blue-800 text-sm font-semibold rounded-full">
-        Client Success Stories
-      </div>
-      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-        Trusted by <span class="gradient-text">Industry Leaders</span>
-      </h2>
-      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-        See how we've helped companies across different industries transform their operations and achieve remarkable results.
-      </p>
-    </div>
+      <Card class="text-center">
+        <div class="w-12 h-12 mx-auto mb-4 rounded-lg bg-green-100 flex items-center justify-center">
+          <Home className="w-6 h-6 text-green-600" />
+        </div>
+        <h3 class="text-lg font-bold text-gray-900 mb-2">Complete Solutions</h3>
+        <p class="text-gray-600 text-sm">From lawn care to hardscaping to fencing, we handle all your outdoor needs.</p>
+      </Card>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {testimonials.map((testimonial) => (
-        <TestimonialCard testimonial={testimonial} />
-      ))}
+      <Card class="text-center">
+        <div class="w-12 h-12 mx-auto mb-4 rounded-lg bg-green-100 flex items-center justify-center">
+          <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+        <h3 class="text-lg font-bold text-gray-900 mb-2">Quality Assured</h3>
+        <p class="text-gray-600 text-sm">Meticulous attention to detail and commitment to excellence on every project.</p>
+      </Card>
+
+      <Card class="text-center">
+        <div class="w-12 h-12 mx-auto mb-4 rounded-lg bg-green-100 flex items-center justify-center">
+          <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+          </svg>
+        </div>
+        <h3 class="text-lg font-bold text-gray-900 mb-2">Trusted Team</h3>
+        <p class="text-gray-600 text-sm">Licensed, insured, and trusted by hundreds of satisfied homeowners in the region.</p>
+      </Card>
     </div>
   </Section>
 
@@ -218,14 +239,14 @@ const testimonials:any[] = [
   <section class="relative py-32 overflow-hidden">
     <!-- Background Image -->
     <div class="absolute inset-0">
-      <Image 
+      <Image
         src={ctaBgImg}
-        alt="Let's work together"
+        alt="Ready to transform your outdoor space"
         class="w-full h-full object-cover"
         width={2070}
         height={1380}
       />
-      <div class="absolute inset-0 bg-linear-to-r from-blue-900/95 to-teal-900/95"></div>
+      <div class="absolute inset-0 bg-linear-to-r from-green-900/95 to-green-800/95"></div>
     </div>
 
     <!-- Content -->
@@ -235,18 +256,18 @@ const testimonials:any[] = [
           Get Started Today
         </div>
         <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-          Ready to Transform Your <span class="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-teal-400">Operations</span>?
+          Ready to Transform Your <span class="text-transparent bg-clip-text bg-linear-to-r from-green-300 to-emerald-300">Outdoor Space</span>?
         </h2>
         <p class="text-xl md:text-2xl text-slate-200 mb-12 max-w-2xl mx-auto leading-relaxed">
-          Every industry has unique requirements. Let us create a customized solution for your business.
+          Get a free, no-obligation quote today. Let us help you create the perfect outdoor space for your home.
         </p>
-        
+
         <div class="flex flex-col sm:flex-row gap-6 justify-center">
-          <Button href="/rfq" size="lg" class="bg-blue-600! hover:bg-blue-700! text-white! shadow-2xl!">
-            Request a Quote
+          <Button href="/rfq" size="lg" class="bg-green-600! hover:bg-green-700! text-white! shadow-2xl!">
+            Get Free Quote
           </Button>
           <Button href="/capabilities" size="lg" variant="outline" class="border-2! border-white! text-white! hover:bg-white/10! shadow-2xl!">
-            View Capabilities
+            View Services
           </Button>
         </div>
       </div>
