@@ -5,27 +5,12 @@ import Button from '@components/ui/Button.astro';
 import TestimonialCard from '@components/ui/TestimonialCard.astro';
 import UseCaseTabs from '@components/react/UseCaseTabs';
 import StatsCards from '@components/react/StatsCards';
-import { Image } from 'astro:assets';
-
-import ecommerceImg from '@assets/5132814676904369851.jpg';
-import healthcareImg from '@assets/3937649282110461008.jpg';
-import automotiveImg from '@assets/1783369057941886937.jpg';
-import technologyImg from '@assets/8860198356584709101.jpg';
-import consumerGoodsImg from '@assets/5132814676904369851.jpg';
-import foodBeverageImg from '@assets/3937649282110461008.jpg';
-
-import testimonial1Img from '@assets/5132814676904369851.jpg';
-import testimonial2Img from '@assets/3937649282110461008.jpg';
-import testimonial3Img from '@assets/1783369057941886937.jpg';
-
-import heroBgImg from '@assets/3937649282110461008.jpg';
-import ctaBgImg from '@assets/5132814676904369851.jpg';
 
 const useCases:any[] = [
   {
     industry: 'E-Commerce & Retail',
     iconName: 'ShoppingCart',
-    image: ecommerceImg,
+    image: 'https://images.pexels.com/photos/5632399/pexels-photo-5632399.jpeg?auto=compress&cs=tinysrgb&w=800',
     challenge: 'Managing high-volume orders during peak seasons with tight delivery windows and customer expectations for fast, accurate fulfillment.',
     solution: 'Scalable warehousing with automated order processing, same-day shipping capabilities, and integrated returns management.',
     results: [
@@ -38,7 +23,7 @@ const useCases:any[] = [
   {
     industry: 'Healthcare & Pharmaceuticals',
     iconName: 'Heart',
-    image: healthcareImg,
+    image: 'https://images.pexels.com/photos/3621000/pexels-photo-3621000.jpeg?auto=compress&cs=tinysrgb&w=800',
     challenge: 'Maintaining strict temperature controls, regulatory compliance, and chain of custody for sensitive medical products and pharmaceuticals.',
     solution: 'FDA-compliant climate-controlled facilities with validated cold chain logistics, real-time monitoring, and full audit trails.',
     results: [
@@ -51,7 +36,7 @@ const useCases:any[] = [
   {
     industry: 'Automotive & Manufacturing',
     iconName: 'Car',
-    image: automotiveImg,
+    image: 'https://images.pexels.com/photos/3749088/pexels-photo-3749088.jpeg?auto=compress&cs=tinysrgb&w=800',
     challenge: 'Coordinating just-in-time delivery of components across multiple manufacturing plants while minimizing inventory holding costs.',
     solution: 'Strategic distribution centers near production facilities, milk-run logistics, and predictive inventory management.',
     results: [
@@ -64,7 +49,7 @@ const useCases:any[] = [
   {
     industry: 'Technology & Electronics',
     iconName: 'Laptop',
-    image: technologyImg,
+    image: 'https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=800',
     challenge: 'Secure handling of high-value electronics, efficient reverse logistics for returns, and rapid product lifecycle management.',
     solution: 'ESD-protected environments, secure chain of custody, streamlined returns processing, and asset recovery programs.',
     results: [
@@ -77,7 +62,7 @@ const useCases:any[] = [
   {
     industry: 'Consumer Goods',
     iconName: 'Package',
-    image: consumerGoodsImg,
+    image: 'https://images.pexels.com/photos/3944441/pexels-photo-3944441.jpeg?auto=compress&cs=tinysrgb&w=800',
     challenge: 'Managing diverse product portfolios with varying shelf lives, promotional campaigns, and seasonal demand fluctuations.',
     solution: 'Multi-client warehousing, FEFO inventory management, promotional labeling services, and demand-driven distribution.',
     results: [
@@ -90,7 +75,7 @@ const useCases:any[] = [
   {
     industry: 'Food & Beverage',
     iconName: 'UtensilsCrossed',
-    image: foodBeverageImg,
+    image: 'https://images.pexels.com/photos/5632370/pexels-photo-5632370.jpeg?auto=compress&cs=tinysrgb&w=800',
     challenge: 'Maintaining food safety standards, managing perishables, and ensuring compliance with HACCP and FDA regulations.',
     solution: 'FSMA-compliant facilities, temperature-zoned warehousing, lot tracking, and specialized refrigerated transport.',
     results: [
@@ -107,21 +92,21 @@ const testimonials:any[] = [
     quote: "AstroFlow's automated warehousing solution transformed our e-commerce operations. We reduced order processing time by 40% and achieved 99.5% accuracy. Their same-day shipping capabilities helped us compete with industry giants.",
     name: "Sarah Mitchell",
     role: "VP Operations, TechRetail",
-    image: testimonial1Img,
+    image: "https://images.pexels.com/photos/3807517/pexels-photo-3807517.jpeg?auto=compress&cs=tinysrgb&w=100",
     ringColor: "ring-blue-200"
   },
   {
     quote: "Their FDA-compliant cold chain logistics are exceptional. We've maintained 100% regulatory compliance with zero temperature excursions. The real-time monitoring and complete audit trails give us complete confidence.",
     name: "Dr. James Chen",
     role: "Director, PharmaLogistics",
-    image: testimonial2Img,
+    image: "https://images.pexels.com/photos/3807517/pexels-photo-3807517.jpeg?auto=compress&cs=tinysrgb&w=100",
     ringColor: "ring-teal-200"
   },
   {
     quote: "Just-in-time delivery with 99.8% on-time performance and zero production stoppages. Their strategic distribution centers and predictive inventory management cut our inventory costs by 50%.",
     name: "Robert Johnson",
     role: "Operations Manager, AutoParts Co.",
-    image: testimonial3Img,
+    image: "https://images.pexels.com/photos/3807517/pexels-photo-3807517.jpeg?auto=compress&cs=tinysrgb&w=100",
     ringColor: "ring-blue-200"
   }
 ];
@@ -132,12 +117,10 @@ const testimonials:any[] = [
   <section class="relative h-[70vh] min-h-[500px] flex items-center overflow-hidden">
     <!-- Background Image with Overlay -->
     <div class="absolute inset-0">
-      <Image 
-        src={heroBgImg}
+      <img
+        src="https://images.pexels.com/photos/3621000/pexels-photo-3621000.jpeg?auto=compress&cs=tinysrgb&w=1600"
         alt="Industry solutions and use cases"
         class="w-full h-full object-cover"
-        width={2070}
-        height={1380}
       />
       <div class="absolute inset-0 bg-linear-to-r from-slate-900/95 via-slate-900/80 to-slate-900/50"></div>
     </div>
@@ -218,12 +201,10 @@ const testimonials:any[] = [
   <section class="relative py-32 overflow-hidden">
     <!-- Background Image -->
     <div class="absolute inset-0">
-      <Image 
-        src={ctaBgImg}
+      <img
+        src="https://images.pexels.com/photos/3621000/pexels-photo-3621000.jpeg?auto=compress&cs=tinysrgb&w=1600"
         alt="Let's work together"
         class="w-full h-full object-cover"
-        width={2070}
-        height={1380}
       />
       <div class="absolute inset-0 bg-linear-to-r from-blue-900/95 to-teal-900/95"></div>
     </div>
